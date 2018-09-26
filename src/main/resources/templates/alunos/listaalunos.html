@@ -1,0 +1,48 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+    <h2>Lista de Alunos</h2>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp m-b">
+        <thead>
+            <tr>
+                <th>Ra</th>
+                <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                <th class="mdl-data-table__cell--non-numeric">Monitor</th>
+                <th>Periodo</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="aluno : ${alunos}">
+                <td th:text="${aluno.ra}"></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${aluno.nome}"></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${aluno.monitor}"></td>
+                <td th:text="${aluno.periodo}"></td>
+                <td>
+                    <button class="delete-plan-bt mdl-button mdl-js-button mdl-button--icon"
+                            th:attr='data-target=${aluno.ra}'>
+                        <i class="material-icons">delete</i>
+                    </button>
+                </td>
+                <td>
+                    <a class="mdl-button mdl-js-button mdl-button--icon" th:href='@{/alunos/cadastroalunos/{ra}(ra=${aluno.ra})}'>
+                        <i class="material-icons">edit</i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" th:href="@{/alunos/cadastroalunos}">
+        <i class="material-icons">add</i>
+    </a>
+    <script>
+        function deletaAluno(event) {
+            var button = $(event.target).parent();
+            var raAluno = button.data("target");
+            $.ajax(`alunos/${raAluno}`, {
+                type: "DELETE"
+            }).done(() => {
+                button.closest("tr").remove();
+            }); 
+        }
+        $(".delete-plan-bt").on('click', deletaAluno);
+    </script>
+</div>

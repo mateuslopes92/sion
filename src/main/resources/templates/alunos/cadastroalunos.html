@@ -1,0 +1,25 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+    <h2>Cadastro de Alunos</h2>
+    <form class="inline" method="post" th:object='${aluno}'>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="ra">Ra</label>
+            <input class="mdl-textfield__input" type="number" th:field='*{ra}'>
+        </div>
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="nome">Nome</label>
+            <input class="mdl-textfield__input" type="text" th:field='*{nome}'>
+        </div>
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="monitor">Monitor</label>
+            <input class="mdl-textfield__input" type="text" th:field='*{monitor}'>
+        </div>
+                
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="periodo">Periodo</label>
+            <input class="mdl-textfield__input" type="number" th:field='*{periodo}'>
+        </div>
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised">Gravar</button>
+    </form>
+</div>

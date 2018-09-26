@@ -1,0 +1,15 @@
+/* 
+    Created on : 06/08/2018, 18:36:11
+    Author     : Djonathan Barros
+*/
+.m-b {
+    margin-bottom: 20px;
+}
+.container {
+    max-width: 962px;
+    margin: 0 auto;
+}
+form.inline > .mdl-textfield {
+    display: block;
+}
+

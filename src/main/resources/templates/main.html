@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+        <title>SION</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/estilos.css}" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" type='text/css' th:href="@{/webjars/material-design-lite/material.min.css}" />
+        <script type="text/javascript" th:src='@{/webjars/jquery/jquery.min.js}'></script>
+        <script type="text/javascript" th:src='@{/webjars/material-design-lite/material.min.js}'></script>
+    </head>
+    <body>
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <span class="mdl-layout-title">SiON</span>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+              <!-- Navigation. We hide it in small screens. -->
+              <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" th:href="@{/logout}">
+                    <i class="material-icons">exit_to_app</i>
+                </a>
+              </nav>
+            </div>
+        </header>
+        <div class='container' th:insert="${page}">TODO write content</div>
+        <div id="demo-snackbar" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        <script>
+            function showMessage(message) {
+                var snackbarContainer = document.querySelector('#demo-snackbar');
+                var data = {
+                    message: message,
+                    timeout: 2000
+                };
+                snackbarContainer.MaterialSnackbar.showSnackbar(data);
+            }
+        </script>
+    </body>
+</html>

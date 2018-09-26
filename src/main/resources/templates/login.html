@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+        <title>LOGIN</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/estilos.css}" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" type='text/css' th:href="@{/webjars/material-design-lite/material.min.css}" />
+    </head>
+    <body>
+        <div align="center" class='container'>
+            <div>
+                <h2 align="center">Formulário de Login</h2>
+                <form class="inline" method="post">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-textfield__label" for="username">Nome</label>
+                        <input class="mdl-textfield__input"  type="text" name="username"> 
+                    </div>
+                    
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class="mdl-textfield__label" for="password">Senha</label>
+                        <input class="mdl-textfield__input" type="password" name="password">
+                    </div>
+                    
+                    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised">Entrar</button>
+                </form>
+            </div>
+        </div>
+        <div id="demo-snackbar" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        <script type="text/javascript" th:src='@{/webjars/jquery/jquery.min.js}'></script>
+        <script type="text/javascript" th:src='@{/webjars/material-design-lite/material.min.js}'></script>
+        <script>
+            function showMessage(message) {
+                var snackbar = document.querySelector('#demo-snackbar');
+                snackbar.MaterialSnackbar.showSnackbar({
+                    message: message,
+                    timeout: 5000
+                });
+            }
+            window.addEventListener('load', function() {
+                if (window.location.href.includes("error")) {
+                    showMessage("Login ou senha incorretos!");
+                } 
+            });
+        </script>
+    </body>
+</html>
