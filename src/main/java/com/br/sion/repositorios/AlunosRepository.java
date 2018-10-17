@@ -18,37 +18,37 @@ public class AlunosRepository {
         return template.query(sql, new AlunosRowMapper());
     }
     
-    public Aluno busca(Long ra) {
-        String sql = "select * from alunos where ra = ?";
-        Object[] parametros = { ra };
+    public Aluno busca(Long aluno_ra) {
+        String sql = "select * from alunos where aluno_ra = ?";
+        Object[] parametros = { aluno_ra };
         return template.queryForObject(sql, parametros, new AlunosRowMapper());
     }
     
     public void salva(Aluno aluno) {
         String sql = 
-                "insert into alunos (ra, nome, monitor, periodo) " +
-                "values (?, ?, ?, ?)";
+                "insert into alunos (aluno_ra, aluno_nome, aluno_monitor, aluno_email, curso_id, curso_nome, curso_periodo, usuario_id, usuario_nome, usuario_senha) " +
+                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Object[] parametros = {
-            aluno.getRa(), aluno.getNome(),
-            aluno.getMonitor(), aluno.getPeriodo()
+            aluno.getAluno_ra(), aluno.getAluno_nome(),aluno.getAluno_monitor(), aluno.getAluno_email(),
+            aluno.getCurso(),aluno.getUsuario()
         };
         template.update(sql, parametros);
     }
     
-    public void atualiza(Long ra, Aluno aluno) {
+    public void atualiza(Long aluno_ra, Aluno aluno) {
         String sql = 
-                "update alunos set nome = ?, monitor = ?, periodo = ? " +
-                "where ra = ?";
+                "update alunos set aluno_ra = ?, aluno_nome = ?, aluno_monitor = ?, aluno_email = ?, curso_id = ?, curso_nome = ?, curso_periodo = ?, usuario_id = ?, usuario_nome = ?, usuario_senha = ? " +
+                "where aluno_ra = ?";
         Object[] parametros = {
-            aluno.getNome(),
-            aluno.getMonitor(), aluno.getPeriodo(), ra
+            aluno.getAluno_nome(),aluno.getAluno_monitor(), aluno.getAluno_email(),
+            aluno.getCurso(),aluno.getUsuario(), aluno_ra
         };
         template.update(sql, parametros);
     }
     
-    public void remove(Long ra) {
-        String sql = "delete from alunos where ra = ?";
-        Object[] parametros = { ra };
+    public void remove(Long aluno_ra) {
+        String sql = "delete from alunos where aluno_ra = ?";
+        Object[] parametros = { aluno_ra };
         template.update(sql, parametros);
     }
     

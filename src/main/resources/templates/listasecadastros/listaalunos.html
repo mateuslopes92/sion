@@ -7,23 +7,37 @@
                 <th class="mdl-data-table__cell--non-numeric">Nome</th>
                 <th class="mdl-data-table__cell--non-numeric">Monitor</th>
                 <th>Periodo</th>
+                <th>Email</th>
+                <th>CursoId</th>
+                <th class="mdl-data-table__cell--non-numeric">CursoNome</th>
+                <th>CursoPeriodo</th>
+                <th>UsuarioId</th>
+                <th class="mdl-data-table__cell--non-numeric">UsuarioNome</th>
+                <th>UsuarioSenha</th>
                 <th colspan="2"></th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="aluno : ${alunos}">
-                <td th:text="${aluno.ra}"></td>
-                <td class="mdl-data-table__cell--non-numeric" th:text="${aluno.nome}"></td>
-                <td class="mdl-data-table__cell--non-numeric" th:text="${aluno.monitor}"></td>
-                <td th:text="${aluno.periodo}"></td>
+                <td th:text="${aluno.aluno_ra}"></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${aluno.aluno_nome}"></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${aluno.aluno_monitor}"></td>
+                <td th:text="${aluno.aluno_periodo}"></td>
+                <td th:text="${aluno.aluno_email}"></td>
+                <td th:text="${aluno.curso_id}"></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${aluno.curso_nome"></td>
+                <td th:text="${aluno.curso_periodo}"></td>
+                <td th:text='${aluno.usuario_id}'></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${aluno.usuario_nome}"></td>
+                <td th:text="${aluno.usuario_senha}"></td>
                 <td>
                     <button class="delete-plan-bt mdl-button mdl-js-button mdl-button--icon"
-                            th:attr='data-target=${aluno.ra}'>
+                            th:attr='data-target=${aluno.aluno_ra}'>
                         <i class="material-icons">delete</i>
                     </button>
                 </td>
                 <td>
-                    <a class="mdl-button mdl-js-button mdl-button--icon" th:href='@{/alunos/cadastroalunos/{ra}(ra=${aluno.ra})}'>
+                    <a class="mdl-button mdl-js-button mdl-button--icon" th:href='@{/alunos/cadastroalunos/{aluno_ra}(aluno_ra=${aluno.aluno_ra})}'>
                         <i class="material-icons">edit</i>
                     </a>
                 </td>
@@ -36,8 +50,8 @@
     <script>
         function deletaAluno(event) {
             var button = $(event.target).parent();
-            var raAluno = button.data("target");
-            $.ajax(`alunos/${raAluno}`, {
+            var aluno_raAluno = button.data("target");
+            $.ajax(`alunos/${aluno_raAluno}`, {
                 type: "DELETE"
             }).done(() => {
                 button.closest("tr").remove();

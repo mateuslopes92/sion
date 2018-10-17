@@ -28,16 +28,16 @@ public class AlunosController {
         return "main";
     }
     
-    @DeleteMapping("/{ra}")
+    @DeleteMapping("/{aluno_ra}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleta(@PathVariable("ra") Long ra) {
-        alunosRepository.remove(ra);
+    public void deleta(@PathVariable("aluno_ra") Long aluno_ra) {
+        alunosRepository.remove(aluno_ra);
     }
     
-    @GetMapping({"/cadastroalunos", "/cadastroalunos/{ra}"})
-    public String cadastroalunos(@PathVariable("ra") Optional<Long> ra, Model model) {
-        if (ra.isPresent()) {
-            model.addAttribute("aluno", alunosRepository.busca(ra.get()));
+    @GetMapping({"/cadastroalunos", "/cadastroalunos/{aluno_ra}"})
+    public String cadastroalunos(@PathVariable("aluno_ra") Optional<Long> aluno_ra, Model model) {
+        if (aluno_ra.isPresent()) {
+            model.addAttribute("aluno", alunosRepository.busca(aluno_ra.get()));
         } else {
             model.addAttribute("aluno", new Aluno());
         }
@@ -45,10 +45,10 @@ public class AlunosController {
         return "main";
     }
     
-    @PostMapping({"/cadastroalunos", "/cadastroalunos/{ra}"})
-    public String grava(@PathVariable("ra") Optional<Long> ra, Aluno aluno) {
-        if (ra.isPresent()) {
-            alunosRepository.atualiza(ra.get(), aluno);
+    @PostMapping({"/cadastroalunos", "/cadastroalunos/{aluno_ra}"})
+    public String grava(@PathVariable("aluno_ra") Optional<Long> aluno_ra, Aluno aluno) {
+        if (aluno_ra.isPresent()) {
+            alunosRepository.atualiza(aluno_ra.get(), aluno);
         } else {
             alunosRepository.salva(aluno);
         }
