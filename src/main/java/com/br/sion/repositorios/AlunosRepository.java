@@ -26,10 +26,10 @@ public class AlunosRepository {
     
     public void salva(Aluno aluno) {
         String sql = 
-                "insert into alunos (aluno_ra, aluno_nome, aluno_monitor, aluno_email, curso_id, curso_nome, curso_periodo, usuario_id, usuario_nome, usuario_senha) " +
-                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "insert into alunos (aluno_ra, aluno_nome, aluno_monitor,aluno_periodo, aluno_email, curso_id, curso_nome, curso_periodo, usuario_id, usuario_nome, usuario_senha) " +
+                "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Object[] parametros = {
-            aluno.getAluno_ra(), aluno.getAluno_nome(),aluno.getAluno_monitor(), aluno.getAluno_email(),
+            aluno.getAluno_ra(), aluno.getAluno_nome(),aluno.getAluno_monitor(),aluno.getAluno_periodo(), aluno.getAluno_email(),
             aluno.getCurso(),aluno.getUsuario()
         };
         template.update(sql, parametros);
@@ -37,10 +37,10 @@ public class AlunosRepository {
     
     public void atualiza(Long aluno_ra, Aluno aluno) {
         String sql = 
-                "update alunos set aluno_ra = ?, aluno_nome = ?, aluno_monitor = ?, aluno_email = ?, curso_id = ?, curso_nome = ?, curso_periodo = ?, usuario_id = ?, usuario_nome = ?, usuario_senha = ? " +
+                "update alunos set aluno_ra = ?, aluno_nome = ?, aluno_monitor = ?,aluno_periodo = ?, aluno_email = ?, curso_id = ?, curso_nome = ?, curso_periodo = ?, usuario_id = ?, usuario_nome = ?, usuario_senha = ? " +
                 "where aluno_ra = ?";
         Object[] parametros = {
-            aluno.getAluno_nome(),aluno.getAluno_monitor(), aluno.getAluno_email(),
+            aluno.getAluno_nome(),aluno.getAluno_monitor(),aluno.getAluno_periodo(), aluno.getAluno_email(),
             aluno.getCurso(),aluno.getUsuario(), aluno_ra
         };
         template.update(sql, parametros);
