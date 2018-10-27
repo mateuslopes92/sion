@@ -1,0 +1,40 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+    <h2>Cadastro de Professores</h2>
+    <form class="form" method="post" th:object='${professor}'>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="professor_cpf">Cpf</label>
+            <input class="mdl-textfield__input" type="number" th:field='*{professor_cpf}'>
+        </div>
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="professor_nome">Nome</label>
+            <input class="mdl-textfield__input" type="text" th:field='*{professor_nome}'>
+        </div>
+        
+        <p></p> 
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="professor_email">E-mail</label>
+            <input class="mdl-textfield__input" type="text" th:field='*{professor_email}'>
+        </div>
+         
+         
+               
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="professor_endereco">Endereco</label>
+            <input class="mdl-textfield__input" type="text" th:field='*{professor_endereco}'>
+        </div>
+        
+        <p></p> 
+        
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <label class="mdl-textfield__label" for="professor_telefone">Telefone</label>
+            <input class="mdl-textfield__input" type="number" th:field='*{professor_telefone}'>
+        </div>
+           
+        <p></p> 
+        
+        
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--primary">Gravar</button>
+    </form>
+</div>

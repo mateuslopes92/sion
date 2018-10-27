@@ -1,55 +1,75 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
     <h2>Cadastro de Alunos</h2>
-    <form class="inline" method="post" th:object='${aluno}'>
+    <form class="form" method="post" th:object='${aluno}'>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="aluno_ra">Ra</label>
             <input class="mdl-textfield__input" type="number" th:field='*{aluno_ra}'>
         </div>
+        
+        
         
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="aluno_nome">Nome</label>
             <input class="mdl-textfield__input" type="text" th:field='*{aluno_nome}'>
         </div>
         
+        <p></p> 
+        
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="aluno_monitor">Monitor</label>
             <input class="mdl-textfield__input" type="text" th:field='*{aluno_monitor}'>
         </div>
-                
+         
+         
+               
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="aluno_periodo">Periodo</label>
             <input class="mdl-textfield__input" type="number" th:field='*{aluno_periodo}'>
         </div>
+        
+        <p></p> 
         
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="aluno_email">Email</label>
             <input class="mdl-textfield__input" type="text" th:field='*{aluno_email}'>
         </div>
         
+       
+        
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="curso_id">CursoId</label>
             <input class="mdl-textfield__input" type="number" th:field='*{curso.curso_id}'>
         </div>
+        
+        <p></p> 
         
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="curso_nome">CursoNome</label>
             <input class="mdl-textfield__input" type="text" th:field='*{curso.curso_nome}'>
         </div>
         
+        
+        
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="curso_periodo">Periodo</label>
             <input class="mdl-textfield__input" type="number" th:field='*{curso.curso_periodo}'>
         </div>        
+        
+        <p></p> 
         
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="usuario_id">UsuarioId</label>
             <input class="mdl-textfield__input" type="number" th:field='*{usuario.usuario_id}'>
         </div>
         
+        
+        
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="usuario_nome">UsuarioNome</label>
             <input class="mdl-textfield__input" type="text" th:field='*{usuario.usuario_nome}'>
         </div>
+        
+        <p></p> 
         
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <label class="mdl-textfield__label" for="usuario_senha">senha</label>
@@ -57,6 +77,6 @@
         </div>
         
         
-        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised">Gravar</button>
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--primary">Gravar</button>
     </form>
 </div>

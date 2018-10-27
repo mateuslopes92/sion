@@ -1,0 +1,50 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+    <h2>Lista de Professores</h2>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp m-b">
+        <thead>
+            <tr>
+                <th>CPF</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Endereco</th>
+                <th class="mdl-data-table__cell--non-numeric">Telefone</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="professor : ${professores}">
+                <td th:text="${professor.professor_cpf}"></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${professor.professor_nome}"></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${professor.professor_email}"></td>
+                <td class="mdl-data-table__cell--non-numeric" th:text="${professor.professor_endereco}"></td>
+                <td th:text="${professor.professor_telefone}"></td>
+                <td>
+                    <button class="delete-plan-bt mdl-button mdl-js-button mdl-button--icon"
+                            th:attr='data-target=${professor.professor_cpf}'>
+                        <i class="material-icons">delete</i>
+                    </button>
+                </td>
+                <td>
+                    <a class="mdl-button mdl-js-button mdl-button--icon" th:href='@{/professores/cadastroprofessores/{professor_cpf}(professor_cpf=${professor.professor_cpf})}'>
+                        <i class="material-icons">edit</i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" th:href="@{/profesores/cadastroprofessores}">
+        <i class="material-icons">add</i>
+    </a>
+    <script>
+        function deletaProfessor(event) {
+            var button = $(event.target).parent();
+            var professor_cpf = button.data("target");
+            $.ajax(`professores/${professor_cpf}`, {
+                type: "DELETE"
+            }).done(() => {
+                button.closest("tr").remove();
+            }); 
+        }
+        $(".delete-plan-bt").on('click', deletaProfessor);
+    </script>
+</div>
